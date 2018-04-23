@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mung Hoang - Turorial Project - MeteorJS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
+</head>
+<body>
+    <div class="tutorial">
+        <div class="header">
+            <div class="navbar-container">
+                <ul class="navbar">
+                    <h2>MeteorJS</h2>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#Introduction">Intro</a>
+                    </li>
+                    <li>
+                        <a href="#Installation">Setup</a>
+                    </li>
+                    <li>
+                        <a href="#Tutorial">Tutorial</a>
+                    </li>
+                    <li>
+                        <a href="#Summary">Summary</a>
+                    </li>
+                    <li>
+                        <a href="#References">References</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="cover-page">
+                <img class="cover-picture" src="https://cdn-images-1.medium.com/max/980/1*TWMx_EwfdYI3taqaXsuLVQ.png" />
+            </div>
+        </div>
+        <div class="container" id="Introduction">
+            <h2>Introduction</h2>
+            <div class="container-50">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7xmxYERxUS66FAcwYtjltsLbzqOJWH_79ZxTKc-_EwKXkglTTsQ">
+            </div>
+            <div class="container-50">
+                <p>
+                    Meteor has been around since 2011. It is a full-stack JavaScript framework for web and mobile applications. It
+                    comes with a built-in instance of mongodb. Upon starting a meteor application, the database is automatically
+                    created and may be bootstrapped with initial data. This provides an immediate head-start to beginning development.
+                    Meteor makes it easy to build robust, secure real-time web applications, handling everything from the browser
+                    app to the server or database.
+                </p>
+                <p>
+                    It makes developing web applications simple. It is easy to learn, and it lets you focus more on the functionality
+                    of your application than the basics of syncing data and serving pages.
+                </p>
+                <p>
+                    It also has lots of behaviors conveniently built in. Meteor automatically performs live updates, so data changes
+                    show up immediately in your browser window, and even code changes to the application itself are pushed to
+                    all browsers and devices in “real-time”. Meteor has built-in latency compensation, is easy to deploy, and
+                    has easy-to-install “packages” that handle all sorts of functionality.
+                </p>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="container" id="Installation">
+            <h1>Let's Start</h1>
+            <h4>
+                This tutorial will walk you through making a basic web application in Meteor - a simple contact book that lets users
+                login and manage a list of contacts.
+            </h4>
+            <br>
+            <h2>Installation</h2>
+            <p>
+                Let’s start by installing meteor by go to Meteor page
+                <a href="https://www.meteor.com/install" target="_blank">https://www.meteor.com/install</a>
+            </p>
+            <div class="container-50">
+                <h4>
+                    Windows
+                </h4>
+                <img src="img/windowsxp.jpg">
+                <p>
+                    First install
+                    <a href="https://chocolatey.org/install" target="_blank"> Chocolatey</a>, then run this command using an Administrator command prompt:meteor
+                </p>
+                <p style="background: azure">
+                    <br>choco install meteor
+                    <br>
+                    <br>
+                </p>
+            </div>
+            <div class="container-50">
+                <h4>
+                    OSX / Linux
+                </h4>
+                <img src="img/mac-linux.png">
+                <p> Run the following command in your terminal to install the latest official Meteor release: </p>
+                <p style="background: azure">
+                    <br>curl https://install.meteor.com/ | sh
+                    <br>
+                    <br>
+                </p>
+            </div>
+        </div>
+        <div class="container" id="Tutorial">
+            <h2>Building Real-Time Web Applications with Meteor</h2>
+            <div class="container-100">
+                <h3>1. Creating New Project</h3>
+                <p>
+                    Once installed, create your first application:
+                    <br>In your cmd/terminal, navigate to where you want to store your app and typing the following command: “meteor
+                    create ContactBook”. This creates a new folder named, “ContactBook” and populates it with some boilerplate and dependent code.
+                </p>
+                <img src="img/createProject.png">
+                <p>
+                    To run the application, In the console, move into the folder. Then type “meteor” in the console to begin running
+                    it and see how it looks. Once meteor is running, open a web browser and navigate to http://localhost:3000
+                    to see it in action. Note, any change you make to the files in the folder will cause meteor to instantly
+                    recompile and reload the page. This is part of the instant deployment during development.
+                </p>
+                <img src="img/runbrowser.png">
+            </div>
+            <div class="container-100">
+                <h3>2. Setting up Database</h3>
+                <p>
+                    Inside the ContactBook folder, create a new folder named “collections”. In the collections folder, create a file
+                    named persons.js (by typing: cd > persons.js). For the contents of this file, include the following (you
+                    can use any text editor to edit file's content):
+                </p>
+                <p style="background: azure">
+                    <br> Persons = new Mongo.Collection('person');
+                    <br>
+                    <br>
+                </p>
+                <p>
+                    The above code tells Meteor to create a collection named “person". Now we need to populate the data. In the base
+                    ContactBook folder, go to the folder named “server”. Inside the “server” folder, create a new file named
+                    “data.js”. Add the following to the data.js file:
+                </p>
+                <img src="img/datajs.png">
+                <p>
+                    Save the file and meteor will rebuild the application. Now, in the web browser console, try typing in the find
+                    statement, to list all database records for the Persons collection.
+                </p>
+                <p style="background: azure">
+                    <br> Persons.find().fetch()
+                    <br>
+                    <br>
+                </p>
+                <img src="img/find.png">
+            </div>
+            <div class="container-100">
+                <h3>3. Create Master Page Layout and View</h3>
+                <p>
+                    We’ll start by adding a master layout, which will serve the individual single page web application view templates.
+                    <br> First, in the root “ContactBook” folder, create a folder named “client” (if you don't have one). Inside
+                    the client folder, delete main.html, main.css, main.js that have already been there and create a file named
+                    “app.head.html”, with the following contents:
+                    <br>
+                </p>
+                <img src="img/header.png">
+                <p>
+                    Next, Inside the “client” folder, create another folder named “views”. Inside this folder, create a folder named
+                    “layout”. In the layout folder, create a file named “layout.html”. Enter the following for its contents:
+                </p>
+                <img src="img/body.png">
+                <p>
+                    The “yield” keyword is where the content from our partial views will be rendered. This is the key behind the
+                    single page navigation of meteor web applications. Now Let’s create our home view. Inside the “views” folder,
+                    create a file named “home.html”. For the contents of this file, include the following:
+                </p>
+                <img src="img/home.png">
+                <p>In the “views” folder, create another file named “about.html”, with the following contents:</p>
+                <img src="img/about.png">
+                <p>
+                    Inside the “views” folder, create another folder named “controls”. We’ll now create the sub-control to render
+                    our form. In the “controls” folder, create a file named “contactForm.html”, this is a simple form for adding
+                    a new person to the database. Adding into the file with the following contents:
+                </p>
+                <img src="img/contactForm.png">
+            </div>
+            <div class="container-100">
+                <h3>4. Setting up Routing</h3>
+                <p>
+                    In the root “ContactBook” folder, create a file named “client.js”. For the contents, include the following:
+                </p>
+                <img src="img/routing.png">
+                <p>
+                    Next, in the console, hit CTRL-C twice to quit the meteor.exe process. Then type: “meteor add iron:router”. This
+                    will add the routing package to the application. Finally, type “meteor” to launch the web application again.
+                    Refresh your web browser and you should see the web page displayed.
+                </p>
+                <img src="img/body.png">
+            </div>
+            <div class="container-100">
+                <h3>5. Displaying Data</h3>
+                <p>
+                    Let’s show the list of people on our home page, just above the form. To do this, we’ll need to create another
+                    partial view control. Inside the folder “ContactBook/client/views/controls” create a file named “persons.html”.
+                    Add the following contents to the file:
+                    <br>
+                </p>
+                <img src="img/person.png">
+                <p>
+                    Let’s include this new view in our home page. Edit the file “ContactBook/client/views/home.html” so it renders
+                    the new control, as follows:
+                </p>
+                <img src="img/home2.png">
+                <p>
+                    Finally, we need to give the template access to the data for Persons. We can do this with a simple helper method.
+                    Edit the file “ContactBook/client.js” to contain the following:
+                </p>
+                <img src="img/client2.png">
+                <p>
+                    Now get back to your browser to see the result. Meteor should have automatically refreshed your web page at this
+                    point.
+                </p>
+                <img src="img/page.png">
+            </div>
+            <div class="container-100">
+                <h3>6. Adding an Event Handler for Clicking a Button and create Inserting method</h3>
+                <p>
+                    Create a new file in the root “ContactBook” folder, named “events.js”, with the following contents:
+                    <br>
+                </p>
+                <img src="img/events.png">
+                <p>Inside the root folder “ContactBook”, create a file named “methods.js” with the following code:</p>
+                <img src="img/method.png">
+            </div>
+            <div class="container-100">
+                <h3>7. Adding an User Login Feature</h3>
+                <p>
+                    At the console, hit CTRL-C twice to exit the meteor.exe process. Type: “meteor add accounts-password” then type
+                    “meteor add accounts-ui”. Edit the file “/ContactBook/client/views/layout/layout.html” and modify the html
+                    as follows:
+                    <br>
+                </p>
+                <img src="img/login.png">
+                <p>
+                    Our data is still open to anonymous users. Let’s now restrict it only to logged-in users. Edit the file “ContactBook/methods.js”,
+                    as follows:
+                </p>
+                <img src="img/method2.png">
+                <p>
+                    Anonymous users will see people created by no particular user, while logged-in users will see both their own
+                    records, and anonymous records. Edit the file “ContactBook/server/data.js” and change the Meteor.publish(…)
+                    code to include a query, as follows:
+                </p>
+                <img src="img/datajs2.png">
+                <p>
+                    Make one final change to “Contact/client/views/controls/persons.html” so that we can show the records created
+                    by our user:
+                </p>
+                <img src="img/person2.png">
+                <p>You also need to turn off autopublish in meteor.</p>
+                <img src="img/off.png">
+            </div>
+            <div class="container-100" id="Summary">
+                <h3>Summary</h3>
+                <p>
+                    As there are many competing web frameworks for creating applications, it’s helpful to master at least one or
+                    two. However, learning new frameworks is an excellent way to stay up-to-date. In this regard, let’s consider
+                    the pros and cons of a web application based upon Meteor.
+                </p>
+            </div>
+            <div class="container-100" id="References">
+                <h3>References</h3>
+                <p>
+                    <a href="https://www.toptal.com/meteor/building-real-time-web-applications-with-meteor" target="_blank">https://www.toptal.com/meteor/building-real-time-web-applications-with-meteor</a>
+                </p>
+                <p>
+                    <a href="https://www.meteor.com/install" target="_blank">https://www.meteor.com/install</a>
+                </p>
+                <p>
+                    <a href="https://chocolatey.org/install" target="_blank">https://chocolatey.org/install</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="footer">
+        <hr>
+        <h4>Mung Hoang</h4>
+        <h4>Email: m.lee@temple.edu</h4>
+    </div>
+</body>
+</html>
